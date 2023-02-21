@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:news_app/constants/AppColors.dart';
+
+class Appbar {
+  static AppBar getAppBar(String title) {
+    return AppBar(
+      // leading: Icon(Icons.back_hand),
+      automaticallyImplyLeading: false,
+      shadowColor: AppColors.black,
+      backgroundColor: AppColors.black,
+      centerTitle: true,
+      title: Text(title),
+    );
+  }
+}
