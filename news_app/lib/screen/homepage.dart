@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:news_app/util/appbar.dart';
@@ -11,6 +12,7 @@ class News {
   final String description;
   final String url;
   final String imageUrl;
+  final String publishedAt;
 
   News({
     required this.title,
@@ -18,6 +20,7 @@ class News {
     required this.description,
     required this.url,
     required this.imageUrl,
+    required this.publishedAt,
   });
 }
 
@@ -38,6 +41,8 @@ Future<List<News>> getNews() async {
         description: article["description"],
         url: article["url"],
         imageUrl: article["urlToImage"] ?? "",
+        publishedAt:
+            article["publishedAt"] != null ? article["publishedAt"] : "",
       );
 
       newsList.add(news);
@@ -74,23 +79,27 @@ class _homepageState extends State<homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Appbar.getAppBar("HEADLINES"),
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(
           children: _newsList.map((news) {
+            final publishedDate = DateTime.parse(news.publishedAt);
+            final formattedDate = DateFormat('yyyy-MM-dd').format(
+                publishedDate); // Format the date string to show only the date portion
+
             return Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
               child: Card(
-                elevation: 8,
+                elevation: 25,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Stack(
                   children: [
                     Container(
                       height: 200,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.vertical(
+                        borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(10),
                         ),
                         image: DecorationImage(
@@ -99,35 +108,48 @@ class _homepageState extends State<homepage> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            news.title,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        padding: const EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.transparent,
+                              Colors.black.withOpacity(1),
+                            ],
                           ),
-                          SizedBox(height: 8),
-                          Text(
-                            "By ${news.author}",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey[600],
-                            ),
+                          borderRadius: const BorderRadius.vertical(
+                            bottom: Radius.circular(10),
                           ),
-                          SizedBox(height: 8),
-                          Text(
-                            news.description,
-                            style: TextStyle(
-                              fontSize: 16,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              news.title,
+                              style: const TextStyle(
+                                fontFamily: 'RobotoSlab-Regular',
+                                fontSize: 20,
+                                color: AppColors.white,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 8),
-                        ],
+                            const SizedBox(height: 12),
+                            Text(
+                              "${news.author} - $formattedDate",
+                              style: const TextStyle(
+                                fontFamily: 'RobotoSlab-Bold',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: AppColors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

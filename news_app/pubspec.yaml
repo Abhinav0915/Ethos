@@ -35,6 +35,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.9
   http: ^0.13.5
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,8 @@ flutter:
     - family: RobotoSlab
       fonts:
         - asset: assets/fonts/RobotoSlab-Bold.ttf
+        - asset: assets/fonts/RobotoSlab-Regular.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
