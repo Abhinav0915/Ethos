@@ -37,6 +37,7 @@ dependencies:
   http: ^0.13.5
   intl: ^0.18.0
   shared_preferences: ^2.0.17
+  lottie: ^1.4.2
 
 dev_dependencies:
   flutter_test:

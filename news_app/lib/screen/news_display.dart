@@ -6,7 +6,7 @@ import 'package:news_app/constants/AppColors.dart';
 class NewsDisplay extends StatelessWidget {
   final News news;
 
-  NewsDisplay({required this.news});
+   NewsDisplay({required this.news});
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,7 @@ class NewsDisplay extends StatelessWidget {
                 color: Colors.black.withOpacity(0.5),
               ),
               child: IconButton(
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 color: Colors.white,
                 onPressed: () => Navigator.of(context).pop(),
               ),

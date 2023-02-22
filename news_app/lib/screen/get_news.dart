@@ -65,3 +65,4 @@ Future<List<News>> getNews() async {
     }
   }
 }
+ 
