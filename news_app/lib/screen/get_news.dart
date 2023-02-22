@@ -1,13 +1,6 @@
 import 'dart:convert';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:intl/intl.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:news_app/util/appbar.dart';
-import 'package:news_app/constants/AppColors.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:news_app/screen/news_display.dart';
-import 'package:news_app/screen/homepage.dart';
+
 
 class News {
   final String title;

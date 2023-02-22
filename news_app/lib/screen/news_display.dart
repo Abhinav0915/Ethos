@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/screen/get_news.dart';
 import 'package:news_app/constants/AppColors.dart';
+import 'package:news_app/util/appbar.dart';
 
 class NewsDisplay extends StatelessWidget {
   final News news;
@@ -14,33 +15,34 @@ class NewsDisplay extends StatelessWidget {
     final formattedDate = DateFormat('yyyy-MM-dd').format(publishedDate);
 
     return Scaffold(
-      body: GestureDetector(
-        child: Hero(
-          tag: news.imageUrl,
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(news.imageUrl),
-                fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          Hero(
+            tag: news.imageUrl,
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(news.imageUrl),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(16.0),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Colors.black.withOpacity(1),
-                      ],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          Colors.black.withOpacity(1),
+                        ],
+                      ),
                     ),
-                  ),
-                  child: Column(
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
@@ -66,7 +68,7 @@ class NewsDisplay extends StatelessWidget {
                                 style: const TextStyle(
                                   fontFamily: 'RobotoSlab',
                                   fontSize: 20,
-                                  color: AppColors.grey,
+                                  color: AppColors.white,
                                 ),
                               ),
                             ),
@@ -75,7 +77,7 @@ class NewsDisplay extends StatelessWidget {
                               style: const TextStyle(
                                 fontFamily: 'RobotoSlab',
                                 fontSize: 20,
-                                color: AppColors.grey,
+                                color: AppColors.white,
                               ),
                             ),
                           ],
@@ -88,46 +90,36 @@ class NewsDisplay extends StatelessWidget {
                             style: const TextStyle(
                               fontFamily: 'RobotoSlab-Regular',
                               fontSize: 14,
-                              color: AppColors.white,
+                              color: AppColors.grey,
                             ),
                           ),
                         ),
-                      ]),
-                ),
-              ],
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
+          Positioned(
+            top: 42,
+            left: 24,
+            child: Container(
+              width: 42,
+              height: 42,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black.withOpacity(0.5),
+              ),
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                color: Colors.white,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-
-
-// children: [
-//           Expanded(
-//             child: Image.network(
-//               news.imageUrl,
-//               fit: BoxFit.cover,
-//             ),
-//           ),
-//           Padding(
-//             padding: const EdgeInsets.all(16.0),
-//             child: Text(
-//               news.description,
-//               style: const TextStyle(
-//                 fontSize: 20.0,
-//               ),
-//             ),
-//           ),
-//           Padding(
-//             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-//             child: Text(
-//               "${news.author} - $formattedDate",
-//               style: const TextStyle(
-//                 fontWeight: FontWeight.bold,
-//                 fontSize: 16.0,
-//               ),
-//             ),
-//           ),
-//         ],
