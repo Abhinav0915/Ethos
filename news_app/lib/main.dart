@@ -1,6 +1,8 @@
 import 'package:news_app/screen/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/screen/news_display.dart';
 import 'constants/AppColors.dart';
+import 'package:news_app/screen/news_display.dart';
 import 'util/appbar.dart';
 import 'package:news_app/screen/homepage.dart';
 
@@ -14,6 +16,7 @@ class Ethos extends StatelessWidget {
   Widget build(BuildContext context) {
     var routes = {
       '/': (context) => homepage(),
+      // '/NewsDisplay' : (context) => NewsDisplay(news:News)
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false,
