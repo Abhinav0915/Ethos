@@ -29,30 +29,24 @@ class _splashState extends State<splash> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.black,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Lottie.network(
-              "https://assets2.lottiefiles.com/packages/lf20_ex5DR6Osfr.json",
-              controller: _controller, onLoaded: (compos) {
-            _controller
-              ..duration = compos.duration
-              ..forward().then((value) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => homepage()));
-              });
-          }),
-          const Center(
-              child: Text(
-            "Welcome To EthoX",
-            style: TextStyle(
-              color: AppColors.white,
-              fontFamily: "RobotoSlab",
-              fontSize: 20,
-              // fontWeight: FontWeight.bold
-            ),
-          )),
-        ],
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Lottie.network(
+                "https://assets2.lottiefiles.com/packages/lf20_ex5DR6Osfr.json",
+                controller: _controller, onLoaded: (compos) {
+              _controller
+                ..duration = compos.duration
+                ..forward().then((value) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => homepage()));
+                });
+            }),
+          ],
+        ),
       ),
     );
   }
