@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:news_app/util/appbar.dart';
 import 'package:news_app/constants/AppColors.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class News {
   final String title;
@@ -41,8 +42,7 @@ Future<List<News>> getNews() async {
         description: article["description"],
         url: article["url"],
         imageUrl: article["urlToImage"] ?? "",
-        publishedAt:
-            article["publishedAt"] != null ? article["publishedAt"] : "",
+        publishedAt: article["publishedAt"] ?? "",
       );
 
       newsList.add(news);
@@ -84,8 +84,8 @@ class _homepageState extends State<homepage> {
         child: Column(
           children: _newsList.map((news) {
             final publishedDate = DateTime.parse(news.publishedAt);
-            final formattedDate = DateFormat('yyyy-MM-dd').format(
-                publishedDate); // Format the date string to show only the date portion
+            final formattedDate =
+                DateFormat('yyyy-MM-dd').format(publishedDate);
 
             return Padding(
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
