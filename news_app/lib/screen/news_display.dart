@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/screen/get_news.dart';
 import 'package:news_app/constants/AppColors.dart';
-import 'package:news_app/util/appbar.dart';
 
 class NewsDisplay extends StatelessWidget {
   final News news;
@@ -63,21 +62,27 @@ class NewsDisplay extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                              child: Flexible(
+                                child: Text(
+                                  news.author,
+                                  style: const TextStyle(
+                                    fontFamily: 'RobotoSlab',
+                                    fontSize: 20,
+                                    color: AppColors.white,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ),
+                            Flexible(
                               child: Text(
-                                "${news.author}",
+                                formattedDate,
                                 style: const TextStyle(
                                   fontFamily: 'RobotoSlab',
                                   fontSize: 20,
                                   color: AppColors.white,
                                 ),
-                              ),
-                            ),
-                            Text(
-                              "$formattedDate",
-                              style: const TextStyle(
-                                fontFamily: 'RobotoSlab',
-                                fontSize: 20,
-                                color: AppColors.white,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],

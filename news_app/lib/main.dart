@@ -16,7 +16,7 @@ class Ethos extends StatelessWidget {
   Widget build(BuildContext context) {
     var routes = {
       '/': (context) => homepage(),
-      // '/NewsDisplay' : (context) => NewsDisplay(news:News)
+   
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false,

@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class News {
   final String title;
@@ -21,24 +20,6 @@ class News {
 }
 
 Future<List<News>> getNews() async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-  // Check if cached data is available in SharedPreferences
-  final cachedData = prefs.getString('cached_news');
-  if (cachedData != null) {
-    final List<News> cachedNews = (json.decode(cachedData) as List)
-        .map((item) => News(
-              title: item['title'],
-              author: item['author'],
-              description: item['description'],
-              url: item['url'],
-              imageUrl: item['imageUrl'],
-              publishedAt: item['publishedAt'],
-            ))
-        .toList();
-    return cachedNews;
-  }
-
   String url =
       "https://newsapi.org/v2/top-headlines?country=us&apiKey=ba679dbdd4974c9492be054f2fd885c1";
   final response = await http.get(Uri.parse(url));
@@ -50,19 +31,16 @@ Future<List<News>> getNews() async {
 
     for (final article in responseData["articles"]) {
       final News news = News(
-        title: article["title"],
+        title: article["title"] ?? "",
         author: article["author"] ?? "Unknown",
-        description: article["description"],
-        url: article["url"],
+        description: article["description"] ?? "",
+        url: article["url"] ?? "",
         imageUrl: article["urlToImage"] ?? "",
         publishedAt: article["publishedAt"] ?? "",
       );
 
       newsList.add(news);
     }
-
-    // Save the data to SharedPreferences
-    await prefs.setString('cached_news', json.encode(newsList));
 
     return newsList;
   } else {
