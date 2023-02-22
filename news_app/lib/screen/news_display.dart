@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/screen/get_news.dart';
-
+import 'package:news_app/constants/AppColors.dart';
 
 class NewsDisplay extends StatelessWidget {
   final News news;
@@ -14,39 +14,120 @@ class NewsDisplay extends StatelessWidget {
     final formattedDate = DateFormat('yyyy-MM-dd').format(publishedDate);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(news.title),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Image.network(
-              news.imageUrl,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              news.description,
-              style: const TextStyle(
-                fontSize: 20.0,
+      body: GestureDetector(
+        child: Hero(
+          tag: news.imageUrl,
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(news.imageUrl),
+                fit: BoxFit.cover,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              "${news.author} - $formattedDate",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.transparent,
+                        Colors.black.withOpacity(1),
+                      ],
+                    ),
+                  ),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                          child: Text(
+                            news.title,
+                            style: const TextStyle(
+                              fontFamily: 'RobotoSlab-Bold',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 29,
+                              color: AppColors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 64),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                              child: Text(
+                                "${news.author}",
+                                style: const TextStyle(
+                                  fontFamily: 'RobotoSlab',
+                                  fontSize: 20,
+                                  color: AppColors.grey,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "$formattedDate",
+                              style: const TextStyle(
+                                fontFamily: 'RobotoSlab',
+                                fontSize: 20,
+                                color: AppColors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(24, 0, 24, 10),
+                          child: Text(
+                            news.description,
+                            style: const TextStyle(
+                              fontFamily: 'RobotoSlab-Regular',
+                              fontSize: 14,
+                              color: AppColors.white,
+                            ),
+                          ),
+                        ),
+                      ]),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
 }
+
+
+// children: [
+//           Expanded(
+//             child: Image.network(
+//               news.imageUrl,
+//               fit: BoxFit.cover,
+//             ),
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.all(16.0),
+//             child: Text(
+//               news.description,
+//               style: const TextStyle(
+//                 fontSize: 20.0,
+//               ),
+//             ),
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 16.0),
+//             child: Text(
+//               "${news.author} - $formattedDate",
+//               style: const TextStyle(
+//                 fontWeight: FontWeight.bold,
+//                 fontSize: 16.0,
+//               ),
+//             ),
+//           ),
+//         ],

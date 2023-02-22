@@ -45,6 +45,7 @@ class _homepageState extends State<homepage> {
             return Padding(
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
               child: GestureDetector(
+                
                 onTap: () {
                   Navigator.push(
                     context,
