@@ -12,6 +12,15 @@ This repository contains the source code for a news app built using Flutter and 
 * Push notifications for breaking news
 * Social media integration for sharing articles with friends and followers
 * The app supports both iOS and Android platform
+
+## Screenshots
+
+
+![All Mews](https://github.com/Abhinav0915/Ethos/blob/main/news_app/assets/Screenshots/Screenshot%20from%202023-02-23%2017-07-03.png) 
+![Description](https://github.com/Abhinav0915/Ethos/blob/main/news_app/assets/Screenshots/Screenshot%20from%202023-02-23%2017-07-11.png)
+
+
+
 ## Dependencies
 
 * Flutter: A UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
@@ -29,6 +38,7 @@ This repository contains the source code for a news app built using Flutter and 
 * shared_preferences: This package allows you to store and retrieve data such as user preferences, app settings, and login credentials.
 
 * lottie: This library allows users to add beautiful and engaging animations to your app without requiring extensive knowledge of animation frameworks. It supports both JSON and After Effects animations.
+
 ## License
 
 This project is licensed under the MIT License, which means you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software without restriction. However, the software is provided "as is," without warranty of any kind, express or implied.
