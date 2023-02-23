@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:news_app/screen/homepage.dart';
+import 'package:ethos/screen/homepage.dart';
 import '../constants/AppColors.dart';
 
 class splash extends StatefulWidget {

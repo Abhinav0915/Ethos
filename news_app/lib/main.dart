@@ -1,13 +1,14 @@
-import 'package:news_app/screen/homepage.dart';
+import 'package:ethos/screen/homepage.dart';
+import 'package:ethos/screen/splash.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/screen/splash.dart';
+import 'package:ethos/screen/news_display.dart';
 
 void main() {
-  runApp(const Ethos());
+  runApp(const ethos());
 }
 
-class Ethos extends StatelessWidget {
-  const Ethos({Key? key}) : super(key: key);
+class ethos extends StatelessWidget {
+  const ethos({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var routes = {

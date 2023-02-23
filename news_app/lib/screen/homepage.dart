@@ -1,9 +1,9 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/util/appbar.dart';
-import 'package:news_app/constants/AppColors.dart';
-import 'package:news_app/screen/news_display.dart';
-import 'package:news_app/screen/get_news.dart';
+import 'package:ethos/util/appbar.dart';
+import 'package:ethos/constants/AppColors.dart';
+import 'package:ethos/screen/news_display.dart';
+import 'package:ethos/screen/get_news.dart';
 
 class homepage extends StatefulWidget {
   const homepage({Key? key}) : super(key: key);

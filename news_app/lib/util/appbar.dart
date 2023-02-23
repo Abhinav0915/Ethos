@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants/AppColors.dart';
+import 'package:ethos/constants/AppColors.dart';
 
 class Appbar {
   static AppBar getAppBar(String title) {

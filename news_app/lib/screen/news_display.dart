@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/screen/get_news.dart';
-import 'package:news_app/constants/AppColors.dart';
+import 'package:ethos/screen/get_news.dart';
+import 'package:ethos/constants/AppColors.dart';
 
 class NewsDisplay extends StatelessWidget {
   final News news;
