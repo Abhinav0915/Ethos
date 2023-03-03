@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ethos/screen/homepage.dart';
-import '../constants/AppColors.dart';
+import 'package:ethos/constants/AppColors.dart';
 
 class splash extends StatefulWidget {
   const splash({Key? key}) : super(key: key);
@@ -36,7 +36,8 @@ class _splashState extends State<splash> with TickerProviderStateMixin {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Lottie.network(
-                "https://assets2.lottiefiles.com/packages/lf20_ex5DR6Osfr.json",
+                
+                "https://assets9.lottiefiles.com/packages/lf20_EIDKE9CAng.json",
                 controller: _controller, onLoaded: (compos) {
               _controller
                 ..duration = compos.duration

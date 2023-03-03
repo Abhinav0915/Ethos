@@ -1,7 +1,6 @@
 import 'package:ethos/screen/homepage.dart';
 import 'package:ethos/screen/splash.dart';
 import 'package:flutter/material.dart';
-import 'package:ethos/screen/news_display.dart';
 
 void main() {
   runApp(const ethos());
