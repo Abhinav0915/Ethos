@@ -36,8 +36,7 @@ class _homepageState extends State<homepage> {
         child: Column(
           children: _newsList.map((news) {
             final publishedDate = DateTime.parse(news.publishedAt);
-            final formattedDate =
-                DateFormat('yyyy-MM-dd').format(publishedDate);
+            final formattedDate = DateFormat('yyyy-MM-dd').format(publishedDate);
 
             return Padding(
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
