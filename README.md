@@ -17,8 +17,8 @@ With a sleek and user-friendly interface, Ethos delivers news stories from top p
 ## Screenshots
 
 
-![All Mews](https://github.com/Abhinav0915/Ethos/blob/main/news_app/assets/Screenshots/Screenshot%20from%202023-02-23%2017-07-03.png) 
-![Description](https://github.com/Abhinav0915/Ethos/blob/main/news_app/assets/Screenshots/Screenshot%20from%202023-02-23%2017-07-11.png)
+![All Mews](https://github.com/Abhinav0915/Ethos/blob/main/assets/Screenshots/Screenshot%20from%202023-02-23%2017-07-03.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Description](https://github.com/Abhinav0915/Ethos/blob/main/assets/Screenshots/Screenshot%20from%202023-02-23%2017-07-11.png)
 
 
 
