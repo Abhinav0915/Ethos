@@ -1,7 +1,7 @@
 # Ethos
 
 Introducing Ethos, the ultimate source for breaking news, trending stories, and personalized content all in one place. With Ethos, you can stay up-to-date on the latest news from around the world, customize your newsfeed to your interests, and never miss a headline again.
-With a sleek and user-friendly interface, Ethos delivers news stories from top publishers and sources across various categories including politics, business, technology, entertainment, sports, and more. Whether you're interested in local news or global events, [app name] has got you covered with real-time updates and alerts.
+With a sleek and user-friendly interface, Ethos delivers news stories from top publishers and sources across various categories including politics, business, technology, entertainment, sports, and more. Whether you're interested in local news or global events, Ethos has got you covered with real-time updates and alerts.
 
 ## Features
 
